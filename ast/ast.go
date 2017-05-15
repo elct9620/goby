@@ -486,6 +486,27 @@ func (ws *WhileStatement) String() string {
 	return out.String()
 }
 
+type ForStatement struct {
+	Token     token.Token
+	Condition Expression
+	Body      *BlockStatement
+}
+
+func (fs *ForStatement) statementNode() {}
+func (fs *ForStatement) TokenLiteral() string {
+	return ws.Token.Literal
+}
+
+func (fs *WhileStatement) String() string {
+	var out bytes.Buffer
+
+	out.WriteString("for ")
+	out.WriteString("in")
+	out.WriteString(" do\n")
+	out.WriteString(ws.Body.String())
+	out.WriteString("\nend")
+}
+
 type YieldExpression struct {
 	Token     token.Token
 	Arguments []Expression

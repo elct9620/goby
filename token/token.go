@@ -68,6 +68,7 @@ const (
 	While  = "WHILE"
 	Do     = "DO"
 	Yield  = "YIELD"
+	For    = "FOR"
 )
 
 var keywords = map[string]Type{
@@ -83,6 +84,7 @@ var keywords = map[string]Type{
 	"while":  While,
 	"do":     Do,
 	"yield":  Yield,
+	"for":    For,
 }
 
 // LookupIdent is used for keyword identification

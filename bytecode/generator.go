@@ -145,6 +145,8 @@ func (g *Generator) compileStatement(is *instructionSet, statement ast.Statement
 		g.endInstructions(is)
 	case *ast.WhileStatement:
 		g.compileWhileStmt(is, stmt, scope, table)
+	case *ast.ForStatement:
+		g.compileForStms(is, stms, scope, table)
 	}
 }
 
@@ -167,6 +169,10 @@ func (g *Generator) compileWhileStmt(is *instructionSet, stmt *ast.WhileStatemen
 	is.define(BranchIf, anchor2)
 	is.define(PutNull)
 	is.define(Pop)
+}
+
+func (g *Generator) compileForStms(is *instructionSet, stms *ast.ForStatement, scope *scope, table *localTable) {
+
 }
 
 func (g *Generator) compileClassStmt(stmt *ast.ClassStatement, scope *scope) {

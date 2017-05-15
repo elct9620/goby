@@ -31,6 +31,8 @@ func (p *Parser) parseStatement() ast.Statement {
 		return nil
 	case token.While:
 		return p.parseWhileStatement()
+	case token.For:
+		return p.parseForStatement()
 	default:
 		return p.parseExpressionStatement()
 	}
@@ -241,4 +243,8 @@ func (p *Parser) parseWhileStatement() *ast.WhileStatement {
 	ws.Body = p.parseBlockStatement()
 
 	return ws
+}
+
+func (p *Parser) parseForStatement() *ast.ForStatement {
+	ws := &ast.ForStatement{Token: p.curToken}
 }
